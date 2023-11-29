@@ -11,6 +11,12 @@
 		6738AA282ACC506800CB96AC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6738AA272ACC506800CB96AC /* ContentView.swift */; };
 		6738AA2A2ACC506A00CB96AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6738AA292ACC506A00CB96AC /* Assets.xcassets */; };
 		6738AA2D2ACC506A00CB96AC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6738AA2C2ACC506A00CB96AC /* Preview Assets.xcassets */; };
+		6738AA702AD033D900CB96AC /* MotivoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6738AA6F2AD033D900CB96AC /* MotivoView.swift */; };
+		6738AA722AD0346A00CB96AC /* EducativaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6738AA712AD0346A00CB96AC /* EducativaView.swift */; };
+		6738AA742AD0352600CB96AC /* AcervoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6738AA732AD0352600CB96AC /* AcervoView.swift */; };
+		6738AA762AD0457100CB96AC /* Motivo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6738AA752AD0457100CB96AC /* Motivo.swift */; };
+		6738AA782AD422DD00CB96AC /* MotivoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6738AA772AD422DD00CB96AC /* MotivoRepository.swift */; };
+		673FB4BE2AD4A86D000C42CE /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673FB4BD2AD4A86D000C42CE /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +25,12 @@
 		6738AA272ACC506800CB96AC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6738AA292ACC506A00CB96AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6738AA2C2ACC506A00CB96AC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6738AA6F2AD033D900CB96AC /* MotivoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivoView.swift; sourceTree = "<group>"; };
+		6738AA712AD0346A00CB96AC /* EducativaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducativaView.swift; sourceTree = "<group>"; };
+		6738AA732AD0352600CB96AC /* AcervoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcervoView.swift; sourceTree = "<group>"; };
+		6738AA752AD0457100CB96AC /* Motivo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Motivo.swift; sourceTree = "<group>"; };
+		6738AA772AD422DD00CB96AC /* MotivoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivoRepository.swift; sourceTree = "<group>"; };
+		673FB4BD2AD4A86D000C42CE /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,10 +63,16 @@
 		6738AA242ACC506800CB96AC /* Motif */ = {
 			isa = PBXGroup;
 			children = (
+				6738AA772AD422DD00CB96AC /* MotivoRepository.swift */,
+				6738AA752AD0457100CB96AC /* Motivo.swift */,
 				6738AA252ACC506800CB96AC /* MotifApp.swift */,
+				6738AA6F2AD033D900CB96AC /* MotivoView.swift */,
 				6738AA272ACC506800CB96AC /* ContentView.swift */,
 				6738AA292ACC506A00CB96AC /* Assets.xcassets */,
 				6738AA2B2ACC506A00CB96AC /* Preview Content */,
+				6738AA712AD0346A00CB96AC /* EducativaView.swift */,
+				6738AA732AD0352600CB96AC /* AcervoView.swift */,
+				673FB4BD2AD4A86D000C42CE /* DetailView.swift */,
 			);
 			path = Motif;
 			sourceTree = "<group>";
@@ -138,7 +156,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6738AA282ACC506800CB96AC /* ContentView.swift in Sources */,
+				673FB4BE2AD4A86D000C42CE /* DetailView.swift in Sources */,
 				6738AA262ACC506800CB96AC /* MotifApp.swift in Sources */,
+				6738AA702AD033D900CB96AC /* MotivoView.swift in Sources */,
+				6738AA742AD0352600CB96AC /* AcervoView.swift in Sources */,
+				6738AA722AD0346A00CB96AC /* EducativaView.swift in Sources */,
+				6738AA762AD0457100CB96AC /* Motivo.swift in Sources */,
+				6738AA782AD422DD00CB96AC /* MotivoRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +291,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Motif/Preview Content\"";
+				DEVELOPMENT_TEAM = BGN455KA8B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -295,6 +320,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Motif/Preview Content\"";
+				DEVELOPMENT_TEAM = BGN455KA8B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

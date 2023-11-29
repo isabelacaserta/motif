@@ -1,23 +1,22 @@
 //
 //  ContentView.swift
-//  Motif
+//  MotifSpark
 //
-//  Created by Isabela Caserta on 03/10/23.
+//  Created by Isabela Caserta on 04/10/23.
 //
 
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject private var motivoRepository = MotivoRepository()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
+        AcervoView()
+        .environmentObject(motivoRepository)
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
