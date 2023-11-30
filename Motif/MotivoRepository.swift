@@ -21,6 +21,10 @@ class MotivoRepository: ObservableObject {
         saveOnUserDefaults()
     }
     
+    func save() {
+        saveOnUserDefaults()
+    }
+    
     private func saveOnUserDefaults() {
         guard let motivosJSON = try? JSONEncoder().encode(motivos) else { return }
         

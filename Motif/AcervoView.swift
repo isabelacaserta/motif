@@ -9,6 +9,9 @@ import SwiftUI
 
 struct AcervoView: View {
     @EnvironmentObject var motivoRepository: MotivoRepository
+    @State var deleteConfirmation = false
+    @State var motivoToDelete : Motivo?
+    @State var index = 0
 
     var body: some View {
         NavigationStack {
@@ -42,7 +45,7 @@ struct AcervoView: View {
                 .padding([.top], 16)
                 
                 VStack(spacing: 16) {
-                    ForEach(motivoRepository.motivos) { m in
+                    ForEach(Array(motivoRepository.motivos.enumerated()), id: \.offset) {index, m in
                         NavigationLink {
                             DetailView(motivo: m)
                         } label: {
@@ -60,7 +63,38 @@ struct AcervoView: View {
                                 .padding()
                             }
                         }
-                    }
+                        .contextMenu {
+                                    Button(role: .destructive) {
+                                        motivoToDelete = m
+                                        self.index = index
+                                        deleteConfirmation = true
+                                    } label: {
+                                        HStack {
+                                            Text("Delete")
+                                            Spacer()
+                                            Image(systemName: "trash")
+                                        }
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.white)
+                                        .padding(.horizontal,24)
+                                        .padding(.vertical)
+                                        .cornerRadius(46)
+                                        .overlay {
+                                            RoundedRectangle(cornerRadius: 46)
+                                        }
+                                    }
+                                }
+                        }.confirmationDialog("Are you sure?", isPresented: $deleteConfirmation,  titleVisibility: .visible,
+                                             actions: {
+                             Button("Yes",  role: .destructive) {
+                                 guard let motivo = motivoToDelete else
+                                 {
+                                     return
+                                 }
+                                 deleteItems(index, motivoRepository)
+                                 deleteConfirmation = false
+                             }
+                         })
                 }
                 .foregroundColor(.white)
             }
@@ -68,6 +102,11 @@ struct AcervoView: View {
             .preferredColorScheme(.dark)
         }
     }
+}
+
+func deleteItems(_ index : Int, _ motivoRepository : MotivoRepository) {
+    motivoRepository.motivos.remove(at: index)
+    motivoRepository.save()
 }
 
 

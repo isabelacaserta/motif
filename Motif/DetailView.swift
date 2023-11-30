@@ -36,7 +36,7 @@ struct DetailView: View {
                     HStack(alignment: .top) {
                         VStack(alignment: .leading, spacing: 48) {
                             
-                            if motivo.tonalidade != nil {
+                            if motivo.tonalidade != nil && motivo.tonalidade != .random {
                                 HStack(alignment: .lastTextBaseline, spacing: 12){
                                     Image(systemName: "circle.fill")
                                         .foregroundColor(.blue)
@@ -56,7 +56,7 @@ struct DetailView: View {
                                 }
                             }
                             
-                            if motivo.compasso != nil {
+                            if motivo.compasso != nil && motivo.compasso != .random {
                                 HStack(alignment: .lastTextBaseline, spacing: 12){
                                     Image(systemName: "triangle.fill")
                                         .foregroundColor(.blue)
@@ -77,7 +77,7 @@ struct DetailView: View {
                                 }
                             }
                             
-                            if motivo.andamento != nil {
+                            if motivo.andamento != nil && motivo.andamento != .random{
                                 HStack(alignment: .lastTextBaseline, spacing: 12){
                                     Image(systemName: "square.fill")
                                         .foregroundColor(.blue)
@@ -98,7 +98,7 @@ struct DetailView: View {
                                 }
                             }
                             
-                            if motivo.carater != nil {
+                            if motivo.carater != nil && motivo.carater != .random{
                                 HStack(alignment: .lastTextBaseline, spacing: 12){
                                     Image(systemName: "hexagon.fill")
                                         .foregroundColor(.blue)

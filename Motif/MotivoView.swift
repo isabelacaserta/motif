@@ -13,7 +13,6 @@ struct MotivoView: View {
     @State private var tonalidadeSelecionada = false
     @State private var formaDeCompassoSelecionada = false
     @State private var andamentoSelecionado = false
-    @State private var dinamicaSelecionada = false
     @State private var caraterSelecionado = false
     @State private var resultado: [String] = []
     @Environment(\.dismiss) var dismiss
@@ -35,19 +34,8 @@ struct MotivoView: View {
                                 .fontWidth(.condensed)
                                 .bold()
                                 .foregroundStyle(.blue)
-        
-                            
                         }
                         Spacer()
-                        
-//                        NavigationLink {
-//                            AcervoView()
-//                        } label: {
-//                            Image(systemName: "bookmark.fill")
-//                                .font(.title)
-//                                .foregroundColor(.blue)
-//                                .frame(width: 48, height: 48)
-//                        }
                     }
                     
                     VStack(spacing: 16) {
@@ -88,7 +76,7 @@ struct MotivoView: View {
                                 .padding([.leading], 32)
                                 .padding([.trailing], 20)
                                 .padding([.vertical], 12)
-                                .foregroundColor(tonalidadeSelecionada == false ? Color(uiColor: .white) : Color(uiColor: .systemGray6))
+                                .foregroundColor(tonalidadeSelecionada == false ? .white : Color(uiColor: .systemGray6))
                             }
                             
                             ZStack {
@@ -208,10 +196,7 @@ struct MotivoView: View {
                             }
                         }
                     }
-                    
                 }
-//                .padding()
-                
                 Spacer()
                 
                 Button(action: {
@@ -221,7 +206,7 @@ struct MotivoView: View {
                 }) {
                     ZStack {
                         Rectangle()
-                            .fill(.blue)
+                            .opacity(0.0)
                             .frame(height: 60)
                         HStack(spacing: 12) {
                             Image(systemName: "music.note")
@@ -235,11 +220,12 @@ struct MotivoView: View {
                         }
                         .padding([.top], 8)
                     }
-                    .disabled(tonalidadeSelecionada == false && formaDeCompassoSelecionada == false && andamentoSelecionado == false && dinamicaSelecionada == false && caraterSelecionado == false)
+                    
                     .frame(maxWidth: .infinity)
                     
                 }
-                .background(.blue)
+                .disabled(tonalidadeSelecionada == false && formaDeCompassoSelecionada == false && andamentoSelecionado == false && caraterSelecionado == false)
+                .background(tonalidadeSelecionada == false && formaDeCompassoSelecionada == false && andamentoSelecionado == false && caraterSelecionado == false ? Color(UIColor.systemGray4) : .blue)
             }
             
             .preferredColorScheme(.dark)
@@ -247,7 +233,7 @@ struct MotivoView: View {
             
         }
         .sheet(isPresented: $isSheetPresented) {
-            ResultadoView(parentDismiss: dismiss, motivo: $motivo, tonalidadeSelecionada: $tonalidadeSelecionada, formaDeCompassoSelecionada: $formaDeCompassoSelecionada, andamentoSelecionado: $andamentoSelecionado, dinamicaSelecionada: $dinamicaSelecionada, caraterSelecionado: $caraterSelecionado)
+            ResultadoView(parentDismiss: dismiss, motivo: $motivo, tonalidadeSelecionada: $tonalidadeSelecionada, formaDeCompassoSelecionada: $formaDeCompassoSelecionada, andamentoSelecionado: $andamentoSelecionado, caraterSelecionado: $caraterSelecionado)
                 
         }
     }
@@ -286,13 +272,10 @@ struct ResultadoView: View {
     
     @EnvironmentObject var motivoRepository: MotivoRepository
     @Environment(\.dismiss) var dismiss
-//    @StateObject private var motivoRepository = MotivoRepository()
-
     @Binding var motivo: Motivo
     @Binding var tonalidadeSelecionada: Bool
     @Binding var formaDeCompassoSelecionada: Bool
     @Binding var andamentoSelecionado: Bool
-    @Binding var dinamicaSelecionada: Bool
     @Binding var caraterSelecionado: Bool
     
     @State private var savedResults: [String] = []
@@ -411,6 +394,7 @@ struct ResultadoView: View {
 
             }
             
+
             HStack {
                 Button(action: {
                     motivo = Motivo(name: motivo.name, tonalidade: .random, compasso: .random, andamento: .random, dinamica: .random, carater: .random)
@@ -418,15 +402,16 @@ struct ResultadoView: View {
                     tonalidadeSelecionada = false
                     formaDeCompassoSelecionada = false
                     andamentoSelecionado = false
-                    dinamicaSelecionada = false
                     caraterSelecionado = false
                     
                 }) {
-                    Text("New motif")
-                        .padding()
-                        .foregroundColor(.white)
-                        .fontWidth(.condensed)
-                        .font(.title3)
+                    HStack(spacing: 8){
+                        Image(systemName: "arrow.counterclockwise")
+                        Text("New motif")
+                            .foregroundColor(.blue)
+                            .fontWidth(.condensed)
+                            .font(.title3)
+                    }
                 }
                 Spacer()
                 
@@ -438,18 +423,17 @@ struct ResultadoView: View {
                     Text("Save motif")
                         .padding()
                         .padding([.horizontal], 16)
-                        .background(Color.blue)
+                        .background(motivo.name == "" ? Color(UIColor.systemGray4) : .blue)
                         .cornerRadius(12)
                         .foregroundColor(.black)
                         .fontWeight(.semibold)
                         .fontWidth(.condensed)
                         .font(.title3)
                 }
+                .disabled(motivo.name == "")
             }
         }
         .padding()
-//        .environmentObject(motivoRepository)
-
     }
     
     func saveResult() {
