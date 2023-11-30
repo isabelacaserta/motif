@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MotivoView: View {
     @State private var isSheetPresented = false
-    @State var motivo: Motivo = Motivo(name: "Exemplo", tonalidade: .random, compasso: .random, andamento: .random, dinamica: .random, carater: .random)
+    @State var motivo: Motivo = Motivo(name: "", tonalidade: .random, compasso: .random, andamento: .random, dinamica: .random, carater: .random)
     @State private var tonalidadeSelecionada = false
     @State private var formaDeCompassoSelecionada = false
     @State private var andamentoSelecionado = false
@@ -24,14 +24,19 @@ struct MotivoView: View {
         NavigationView {
             VStack {
                 ScrollView {
+                    
                     HStack {
                         HStack(alignment: .firstTextBaseline) {
-                            Text("Create")
+                            Text("Musical")
                                 .font(.system(size: 60))
                                 .fontWidth(.condensed)
                                 .bold()
                             Text("MOTIF")
                                 .fontWidth(.condensed)
+                                .bold()
+                                .foregroundStyle(.blue)
+        
+                            
                         }
                         Spacer()
                         
@@ -92,7 +97,7 @@ struct MotivoView: View {
                                 VStack(alignment:. leading) {
                                     HStack {
                                         HStack(spacing: 16) {
-                                            Image(systemName: "square.fill")
+                                            Image(systemName: "triangle.fill")
                                                 .foregroundColor(formaDeCompassoSelecionada == false ? Color(uiColor: .white) : .blue)
                                             Text("Time Signature")
                                                 .fontWidth(.condensed)
@@ -130,7 +135,7 @@ struct MotivoView: View {
                                 VStack(alignment:. leading) {
                                     HStack {
                                         HStack(spacing: 16) {
-                                            Image(systemName: "triangle.fill")
+                                            Image(systemName: "square.fill")
                                                 .foregroundColor(andamentoSelecionado == false ? Color(uiColor: .white) : .blue)
                                             Text("Tempo")
                                                 .fontWidth(.condensed)
@@ -222,7 +227,7 @@ struct MotivoView: View {
                             Image(systemName: "music.note")
                                 .foregroundColor(.black)
                             
-                            Text("Create motif")
+                            Text("Geneate motif")
                                 .foregroundColor(.black)
                                 .fontWeight(.semibold)
                                 .fontWidth(.condensed)
@@ -295,14 +300,20 @@ struct ResultadoView: View {
     var body: some View {
         VStack(spacing: 40) {
             HStack(alignment: .firstTextBaseline) {
-                Text("Compose")
+                Text("Musical")
                     .font(.system(size: 60))
                     .fontWidth(.condensed)
                     .bold()
                 Text("MOTIF")
                     .fontWidth(.condensed)
+                    .bold()
+                    .foregroundStyle(.blue)
             }
             .padding(.top)
+            
+            TextField("Write your musical motif name", text: $motivo.name)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding([.top], 40)
             
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
@@ -311,80 +322,93 @@ struct ResultadoView: View {
                     VStack(alignment: .leading, spacing: 16) {
                         
                         if motivo.tonalidade != .random {
-                            HStack(alignment: .firstTextBaseline, spacing: 8) {
-                                Text("TONALIDADE")
-                                    .foregroundColor(.white)
-                                    .fontWidth(.condensed)
-                                    .font(.system(size: 16))
-                                    .fontWeight(.light)
-                                Text(motivo.tonalidade.rawValue)
-                                    .foregroundColor(.white)
-                                    .fontWidth(.condensed)
-                                    .bold()
-                                    .font(.system(size: 28))
-                                    .padding(.bottom)
-                                Spacer()
+                            HStack(alignment: .lastTextBaseline, spacing: 12){
+                                Image(systemName: "circle.fill")
+                                    .foregroundColor(.blue)
+                                    .font(.title)
+                                VStack(spacing: 4) {
+                                    Text("MUSICAL KEY")
+                                        .foregroundColor(.white)
+                                        .fontWidth(.condensed)
+                                        .font(.system(size: 16))
+                                        .fontWeight(.light)
+                                    Text(motivo.tonalidade.rawValue)
+                                        .foregroundColor(.white)
+                                        .fontWidth(.condensed)
+                                        .bold()
+                                        .font(.system(size: 28))
+                                }
                             }
-                            
                         }
                         
                         if motivo.compasso != .random {
-                            HStack(alignment: .firstTextBaseline, spacing: 8) {
-                                Text("COMPASSO")
-                                    .foregroundColor(.white)
-                                    .fontWidth(.condensed)
-                                    .font(.system(size: 16))
-                                    .fontWeight(.light)
-                                    .padding(.top)
-                                Text(motivo.compasso.rawValue)
-                                    .foregroundColor(.white)
-                                    .fontWidth(.condensed)
-                                    .bold()
-                                    .font(.system(size: 28))
-                                    .padding(.bottom)
-                                Spacer()
+                            HStack(alignment: .lastTextBaseline, spacing: 12){
+                                Image(systemName: "triangle.fill")
+                                    .foregroundColor(.blue)
+                                    .font(.title)
+                                VStack(alignment: .leading, spacing: 4){
+                                    Text("TIME SIGNATURE")
+                                        .foregroundColor(.white)
+                                        .fontWidth(.condensed)
+                                        .font(.system(size: 16))
+                                        .fontWeight(.light)
+                                        .padding(.top)
+                                    Text(motivo.compasso.rawValue)
+                                        .foregroundColor(.white)
+                                        .fontWidth(.condensed)
+                                        .bold()
+                                        .font(.system(size: 28))
+                                }
                             }
                         }
                         
                         if motivo.andamento != .random {
-                            HStack(alignment: .firstTextBaseline, spacing: 8) {
-                                Text("ANDAMENTO")
-                                    .foregroundColor(.white)
-                                    .fontWidth(.condensed)
-                                    .font(.system(size: 16))
-                                    .fontWeight(.light)
-                                    .padding(.top)
-                                Text(motivo.andamento.rawValue)
-                                    .foregroundColor(.white)
-                                    .fontWidth(.condensed)
-                                    .bold()
-                                    .font(.system(size: 28))
-                                    .padding(.bottom)
-                                Spacer()
+                            HStack(alignment: .lastTextBaseline, spacing: 12){
+                                Image(systemName: "square.fill")
+                                    .foregroundColor(.blue)
+                                    .font(.title)
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text("TEMPO")
+                                        .foregroundColor(.white)
+                                        .fontWidth(.condensed)
+                                        .font(.system(size: 16))
+                                        .fontWeight(.light)
+                                        .padding(.top)
+                                    Text(motivo.andamento.rawValue)
+                                        .foregroundColor(.white)
+                                        .fontWidth(.condensed)
+                                        .bold()
+                                        .font(.system(size: 28))
+                                }
                             }
                         }
                         
                         if motivo.carater != .random {
-                            HStack(alignment: .firstTextBaseline, spacing: 8) {
-                                Text("CARÁTER")
-                                    .foregroundColor(.white)
-                                    .fontWidth(.condensed)
-                                    .font(.system(size: 16))
-                                    .fontWeight(.light)
-                                    .padding(.top)
-                                Text(motivo.carater.rawValue)
-                                    .foregroundColor(.white)
-                                    .fontWidth(.condensed)
-                                    .bold()
-                                    .font(.system(size: 28))
-                                    .padding(.bottom)
-                                Spacer()
+                            HStack(alignment: .lastTextBaseline, spacing: 12){
+                                Image(systemName: "hexagon.fill")
+                                    .foregroundColor(.blue)
+                                    .font(.title)
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text("MUSICAL CHARACTER")
+                                        .foregroundColor(.white)
+                                        .fontWidth(.condensed)
+                                        .font(.system(size: 16))
+                                        .fontWeight(.light)
+                                        .padding(.top)
+                                    Text(motivo.carater.rawValue)
+                                        .foregroundColor(.white)
+                                        .fontWidth(.condensed)
+                                        .bold()
+                                        .font(.system(size: 28))
+                                        .padding(.bottom)
+                                }
                             }
                         }
                     }
-                    .padding(32)
-
+                    Spacer()
                 }
+                .padding(32)
+
             }
             
             HStack {

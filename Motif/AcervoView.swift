@@ -15,6 +15,10 @@ struct AcervoView: View {
             ScrollView {
                 HStack {
                     HStack(alignment: .firstTextBaseline) {
+                        Image("detail")
+                            .resizable()
+                            .frame(width: 40, height: 40)
+                            .padding([.trailing], 12)
                         Text("Collect")
                             .font(.system(size: 60))
                             .fontWidth(.condensed)
@@ -22,6 +26,9 @@ struct AcervoView: View {
                         
                         Text("MOTIF")
                             .fontWidth(.condensed)
+                            .foregroundStyle(.blue)
+                            .bold()
+
                     }
                     Spacer()
                     NavigationLink {
@@ -40,21 +47,13 @@ struct AcervoView: View {
                             DetailView(motivo: m)
                         } label: {
                             ZStack {
-                                RoundedRectangle(cornerRadius: 20)
+                                RoundedRectangle(cornerRadius: 12)
                                     .foregroundColor(Color(uiColor: .systemGray6))
                                 HStack {
-                                    HStack(spacing: 16) {
-                                        Image("image2")
-                                            .resizable()
-                                            .font(.system(size: 60))
-                                            .frame(width: 56, height: 56)
-                                            .cornerRadius(8)
-                                        
-                                        Text(m.name)
-                                            .font(.system(size: 20))
-                                            .fontWidth(.condensed)
-    //                                        .bold()
-                                    }
+                                    Text(m.name)
+                                        .font(.system(size: 20))
+                                        .fontWidth(.condensed)
+                                        .bold()
                                     Spacer()
                                     Image(systemName: "chevron.right")
                                 }

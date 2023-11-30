@@ -66,12 +66,12 @@ struct Motivo: Identifiable, Codable {
         var id: Carater { self }
         
         case random = "Random"
-        case epico = "Épico"
-        case solene = "Solene"
-        case sombrio = "Sombrio"
-        case alegre = "Alegre"
-        case tragico = "Trágico"
-        case heroico = "Heroico"
-        case romantico = "Romântico"
+        case epico = "Epic"
+        case solene = "Solemn"
+        case sombrio = "Dark"
+        case alegre = "Cheerful"
+        case tragico = "Tragic"
+        case heroico = "Heroic"
+        case romantico = "Romantic"
     }
 }

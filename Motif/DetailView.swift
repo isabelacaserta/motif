@@ -24,6 +24,9 @@ struct DetailView: View {
                             .bold()
                             
                         Text("MOTIF")
+                            .fontWidth(.condensed)
+                            .foregroundStyle(.blue)
+                            .bold()
                     }
                     Spacer()
                 }
@@ -31,91 +34,106 @@ struct DetailView: View {
                     RoundedRectangle(cornerRadius: 20)
                         .foregroundColor(Color(uiColor: .systemGray6))
                     HStack(alignment: .top) {
-                        VStack(alignment: .leading, spacing: 16) {
+                        VStack(alignment: .leading, spacing: 48) {
                             
                             if motivo.tonalidade != nil {
-                                HStack(alignment: .firstTextBaseline, spacing: 8) {
-                                    Text("TONALIDADE")
-                                        .foregroundColor(.white)
-                                        .fontWidth(.condensed)
-                                        .font(.system(size: 16))
-                                        .fontWeight(.light)
-                                    Text(motivo.tonalidade.rawValue)
-                                        .foregroundColor(.white)
-                                        .fontWidth(.condensed)
-                                        .bold()
-                                        .font(.system(size: 28))
-                                        .padding(.bottom)
-                                    Spacer()
+                                HStack(alignment: .lastTextBaseline, spacing: 12){
+                                    Image(systemName: "circle.fill")
+                                        .foregroundColor(.blue)
+                                        .font(.title)
+                                    VStack(spacing: 4) {
+                                        Text("MUSICAL KEY")
+                                            .foregroundColor(.white)
+                                            .fontWidth(.condensed)
+                                            .font(.system(size: 16))
+                                            .fontWeight(.light)
+                                        Text(motivo.tonalidade.rawValue)
+                                            .foregroundColor(.white)
+                                            .fontWidth(.condensed)
+                                            .bold()
+                                            .font(.system(size: 28))
+                                    }
                                 }
-                                
                             }
                             
                             if motivo.compasso != nil {
-                                HStack(alignment: .firstTextBaseline, spacing: 8) {
-                                    Text("COMPASSO")
-                                        .foregroundColor(.white)
-                                        .fontWidth(.condensed)
-                                        .font(.system(size: 16))
-                                        .fontWeight(.light)
-                                        .padding(.top)
-                                    Text(motivo.compasso.rawValue)
-                                        .foregroundColor(.white)
-                                        .fontWidth(.condensed)
-                                        .bold()
-                                        .font(.system(size: 28))
-                                        .padding(.bottom)
-                                    Spacer()
+                                HStack(alignment: .lastTextBaseline, spacing: 12){
+                                    Image(systemName: "triangle.fill")
+                                        .foregroundColor(.blue)
+                                        .font(.title)
+                                    VStack(alignment: .leading, spacing: 4){
+                                        Text("TIME SIGNATURE")
+                                            .foregroundColor(.white)
+                                            .fontWidth(.condensed)
+                                            .font(.system(size: 16))
+                                            .fontWeight(.light)
+                                            .padding(.top)
+                                        Text(motivo.compasso.rawValue)
+                                            .foregroundColor(.white)
+                                            .fontWidth(.condensed)
+                                            .bold()
+                                            .font(.system(size: 28))
+                                    }
                                 }
                             }
                             
                             if motivo.andamento != nil {
-                                HStack(alignment: .firstTextBaseline, spacing: 8) {
-                                    Text("ANDAMENTO")
-                                        .foregroundColor(.white)
-                                        .fontWidth(.condensed)
-                                        .font(.system(size: 16))
-                                        .fontWeight(.light)
-                                        .padding(.top)
-                                    Text(motivo.andamento.rawValue)
-                                        .foregroundColor(.white)
-                                        .fontWidth(.condensed)
-                                        .bold()
-                                        .font(.system(size: 28))
-                                        .padding(.bottom)
-                                    Spacer()
+                                HStack(alignment: .lastTextBaseline, spacing: 12){
+                                    Image(systemName: "square.fill")
+                                        .foregroundColor(.blue)
+                                        .font(.title)
+                                    VStack(alignment: .leading, spacing: 4) {
+                                        Text("TEMPO")
+                                            .foregroundColor(.white)
+                                            .fontWidth(.condensed)
+                                            .font(.system(size: 16))
+                                            .fontWeight(.light)
+                                            .padding(.top)
+                                        Text(motivo.andamento.rawValue)
+                                            .foregroundColor(.white)
+                                            .fontWidth(.condensed)
+                                            .bold()
+                                            .font(.system(size: 28))
+                                    }
                                 }
                             }
                             
                             if motivo.carater != nil {
-                                HStack(alignment: .firstTextBaseline, spacing: 8) {
-                                    Text("CARÁTER")
-                                        .foregroundColor(.white)
-                                        .fontWidth(.condensed)
-                                        .font(.system(size: 16))
-                                        .fontWeight(.light)
-                                        .padding(.top)
-                                    Text(motivo.carater.rawValue)
-                                        .foregroundColor(.white)
-                                        .fontWidth(.condensed)
-                                        .bold()
-                                        .font(.system(size: 28))
-                                        .padding(.bottom)
-                                    Spacer()
+                                HStack(alignment: .lastTextBaseline, spacing: 12){
+                                    Image(systemName: "hexagon.fill")
+                                        .foregroundColor(.blue)
+                                        .font(.title)
+                                    VStack(alignment: .leading, spacing: 4) {
+                                        Text("MUSICAL CHARACTER")
+                                            .foregroundColor(.white)
+                                            .fontWidth(.condensed)
+                                            .font(.system(size: 16))
+                                            .fontWeight(.light)
+                                            .padding(.top)
+                                        Text(motivo.carater.rawValue)
+                                            .foregroundColor(.white)
+                                            .fontWidth(.condensed)
+                                            .bold()
+                                            .font(.system(size: 28))
+                                            .padding(.bottom)
+                                    }
                                 }
                             }
+                            
                         }
-                        .padding(32)
+                        Spacer()
                     }
+                    .padding(32)
+
 
                 }
                 
-                TextField("Nome", text: $name)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding([.top], 40)
-                TextField("Descrição", text: $name)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding([.top], 40)
+//                TextField("Name", text: $name)
+//                    .textFieldStyle(RoundedBorderTextFieldStyle())
+//                    .padding([.top], 40)
+//                TextField("Descrição", text: $name)
+//                    .textFieldStyle(RoundedBorderTextFieldStyle())
+//                    .padding([.top], 40)
                 
 
             }
