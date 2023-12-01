@@ -17,17 +17,18 @@ struct AcervoView: View {
         NavigationStack {
             ScrollView {
                 HStack {
-                    HStack(alignment: .firstTextBaseline) {
+                    HStack(alignment: .lastTextBaseline) {
                         Image("detail")
                             .resizable()
                             .frame(width: 40, height: 40)
                             .padding([.trailing], 12)
-                        Text("Collect")
-                            .font(.system(size: 60))
+                        Text("MOTIF")
+                            .font(.system(size: 54))
                             .fontWidth(.condensed)
                             .bold()
                         
-                        Text("MOTIF")
+                        Text("MUSIC \nCOMPOSER")
+                            .font(.system(size: 12))
                             .fontWidth(.condensed)
                             .foregroundStyle(.blue)
                             .bold()

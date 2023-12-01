@@ -26,8 +26,8 @@ struct MotivoView: View {
                     
                     HStack {
                         HStack(alignment: .firstTextBaseline) {
-                            Text("Musical")
-                                .font(.system(size: 60))
+                            Text("Create")
+                                .font(.system(size: 52))
                                 .fontWidth(.condensed)
                                 .bold()
                             Text("MOTIF")

@@ -19,7 +19,7 @@ struct DetailView: View {
                 HStack {
                     HStack(alignment: .firstTextBaseline) {
                         Text(motivo.name)
-                            .font(.system(size: 60))
+                            .font(.system(size: 56))
                             .fontWidth(.condensed)
                             .bold()
                             
