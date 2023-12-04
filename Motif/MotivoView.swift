@@ -281,22 +281,21 @@ struct ResultadoView: View {
     @State private var savedResults: [String] = []
     
     var body: some View {
-        VStack(spacing: 40) {
+        VStack(alignment: .leading, spacing: 40) {
             HStack(alignment: .firstTextBaseline) {
-                Text("Musical")
+                Text("Compose")
                     .font(.system(size: 60))
                     .fontWidth(.condensed)
                     .bold()
-                Text("MOTIF")
+                Text("MUSIC")
                     .fontWidth(.condensed)
                     .bold()
                     .foregroundStyle(.blue)
             }
             .padding(.top)
             
-            TextField("Write your musical motif name", text: $motivo.name)
+            TextField("Music name", text: $motivo.name)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding([.top], 40)
             
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
@@ -393,7 +392,6 @@ struct ResultadoView: View {
                 .padding(32)
 
             }
-            
 
             HStack {
                 Button(action: {
@@ -442,8 +440,6 @@ struct ResultadoView: View {
     }
     
 }
-
-
 
 struct MotivoView_Previews: PreviewProvider {
     static var previews: some View {
