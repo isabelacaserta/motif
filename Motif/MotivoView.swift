@@ -197,6 +197,8 @@ struct MotivoView: View {
                         }
                     }
                 }
+                .padding(.horizontal)
+
                 Spacer()
                 
                 Button(action: {
@@ -212,7 +214,7 @@ struct MotivoView: View {
                             Image(systemName: "music.note")
                                 .foregroundColor(.black)
                             
-                            Text("Geneate motif")
+                            Text("Generate motif")
                                 .foregroundColor(.black)
                                 .fontWeight(.semibold)
                                 .fontWidth(.condensed)
@@ -229,8 +231,6 @@ struct MotivoView: View {
             }
             
             .preferredColorScheme(.dark)
-            
-            
         }
         .sheet(isPresented: $isSheetPresented) {
             ResultadoView(parentDismiss: dismiss, motivo: $motivo, tonalidadeSelecionada: $tonalidadeSelecionada, formaDeCompassoSelecionada: $formaDeCompassoSelecionada, andamentoSelecionado: $andamentoSelecionado, caraterSelecionado: $caraterSelecionado)
@@ -294,7 +294,7 @@ struct ResultadoView: View {
             }
             .padding(.top)
             
-            TextField("Music name", text: $motivo.name)
+            TextField("Composition title", text: $motivo.name)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             
             ZStack {

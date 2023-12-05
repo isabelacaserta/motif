@@ -138,7 +138,7 @@ struct DetailView: View {
 
             }
         }
-        .padding()
+        .padding(.horizontal)
         .preferredColorScheme(.dark)
 
 
